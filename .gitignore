@@ -10,4 +10,4 @@ keyset
 *.db
 
 .vscode
-.Crypt-Server.code-workspace
+Crypt-Server.code-workspace
