@@ -42,8 +42,15 @@
 
       <div class="container">
 
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <a class="navbar-brand" href="{% url 'server:home' %}">Crypt</a>
+          {% comment %} <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <a class="navbar-brand" href="{% url 'server:home' %}">Crypt</a> {% endcomment %}
+          <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 14px;">
+              <a class="navbar-brand" href="{% url 'server:home' %}">
+                {% load static %}
+                <img src="{% static 'images/ECU-Logo_RGB.png' %}" alt="ECUAD Crypt Server Logo" width="40" height="40">
+                ECUAD Crypt Server
+              </a>    
+              
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -83,7 +90,9 @@
 
         {% endblock %}
 
+        {% if user.is_authenticated %}
         <div class="row"><div class="col-md-12"><p class="float-right">Crypt Server version {{ CRYPT_VERSION }}</p></div></div>
+        {% endif %}
 
       </div><!-- /.container -->
 
